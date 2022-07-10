@@ -13,7 +13,7 @@ curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/I
 curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/MajorOSInfo.pkg" --output "${DESTINATION}/HighSierraDownload/MajorOSInfo.pkg"
 curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/OSInstall.mpkg" --output "${DESTINATION}/HighSierraDownload/OSInstall.mpkg"
 
-curl -L "https://raw.githubusercontent.com/drhino/1013/main/shasum/HighSierraDownload" --output "${DESTINATION}/HighSierraDownload"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/shasum/HighSierraDownload" --output "${DESTINATION}/HighSierraDownload.txt"
 
 curl -L "https://cloudflare-ipfs.com/ipfs/QmYTUKf6b3dg2gRwMAi6DpUDFBEGUQfgBkyuyD2AFY9Trh/macOS%20High%20Sierra%20Patcher.dmg" --output "${DESTINATION}/macOS-High-Sierra-Patcher.dmg"
 
@@ -21,7 +21,7 @@ echo ""
 
 cd "${DESTINATION}"
 
-CHECKSUM=$(shasum -c ./HighSierraDownload)
+CHECKSUM=$(shasum -c ./HighSierraDownload.txt)
 
 echo "${CHECKSUM}"
 
