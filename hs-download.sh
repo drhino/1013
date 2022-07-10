@@ -19,9 +19,16 @@ curl -L "https://cloudflare-ipfs.com/ipfs/QmYTUKf6b3dg2gRwMAi6DpUDFBEGUQfgBkyuyD
 
 echo ""
 
+if [[ ! -f "${DESTINATION}/HighSierraDownload.txt" ]]
+then
+	echo "ERROR: Checksum file not found: ${DESTINATION}/HighSierraDownload.txt" 1>&2
+	echo ""
+	exit 1
+fi
+
 cd "${DESTINATION}"
 
-CHECKSUM=$(shasum -c ./HighSierraDownload.txt)
+CHECKSUM=$(shasum -c "${DESTINATION}/HighSierraDownload.txt")
 
 echo "${CHECKSUM}"
 
