@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DESTINATION="${HOME}/Downloads"
+DESTINATION="/Applications"
 SUCATALOG="index-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
 
 mkdir "${DESTINATION}/HighSierraDownload"
@@ -27,3 +27,5 @@ then
 fi
 
 echo ""
+
+open "${DESTINATION}/macOS-High-Sierra-Patcher.dmg"
