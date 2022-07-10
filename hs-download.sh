@@ -34,9 +34,10 @@ echo "${CHECKSUM}"
 
 echo ""
 
-CHECKSUM=$(echo "${CHECKSUM}" | grep ": FAILED$")
+FAILED=$(echo "${CHECKSUM}" | grep ": FAILED$")
+WARNING=$(echo "${CHECKSUM}" | grep ": WARNING: ")
 
-if [[ -z ${CHECKSUM} ]]
+if [[ -z ${FAILED} && -z ${WARNING} ]]
 then
 	echo "- CHECKSUM OK -"
 
