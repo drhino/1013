@@ -1,29 +1,37 @@
 #!/bin/bash
 
 DESTINATION="/Applications"
-SUCATALOG="index-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
 
 mkdir "${DESTINATION}/HighSierraDownload"
-curl -L "https://raw.githubusercontent.com/drhino/1013/main/${SUCATALOG}" --output "${DESTINATION}/HighSierraDownload/${SUCATALOG}"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/index-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz" --output "${DESTINATION}/HighSierraDownload/index-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog.gz"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/AppleDiagnostics.chunklist" --output "${DESTINATION}/HighSierraDownload/AppleDiagnostics.chunklist"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/AppleDiagnostics.dmg" --output "${DESTINATION}/HighSierraDownload/AppleDiagnostics.dmg"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/BaseSystem.chunklist" --output "${DESTINATION}/HighSierraDownload/BaseSystem.chunklist"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/InstallAssistantAuto.pkg" --output "${DESTINATION}/HighSierraDownload/InstallAssistantAuto.pkg"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/InstallESDDmg.chunklist" --output "${DESTINATION}/HighSierraDownload/InstallESDDmg.chunklist"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/InstallInfo.plist" --output "${DESTINATION}/HighSierraDownload/InstallInfo.plist"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/MajorOSInfo.pkg" --output "${DESTINATION}/HighSierraDownload/MajorOSInfo.pkg"
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/HighSierraDownload/OSInstall.mpkg" --output "${DESTINATION}/HighSierraDownload/OSInstall.mpkg"
+
+curl -L "https://raw.githubusercontent.com/drhino/1013/main/shasum/HighSierraDownload" --output "${DESTINATION}/HighSierraDownload"
+
 curl -L "https://cloudflare-ipfs.com/ipfs/QmYTUKf6b3dg2gRwMAi6DpUDFBEGUQfgBkyuyD2AFY9Trh/macOS%20High%20Sierra%20Patcher.dmg" --output "${DESTINATION}/macOS-High-Sierra-Patcher.dmg"
 
 echo ""
 
-if [[ "c07629275caa38b18b701338ebd27ad6c7f91146" != $(shasum "${DESTINATION}/HighSierraDownload/${SUCATALOG}" | awk '{print $1}') ]]
-then
-	echo "ERROR: Wrong shasum: '${DESTINATION}/HighSierraDownload/${SUCATALOG}'" 1>&2
-	HASERROR=true
-fi
+cd "${DESTINATION}"
 
-if [[ "73f180d30200ef5f6d900440fe57b9c7d22bd6bf" != $(shasum "${DESTINATION}/macOS-High-Sierra-Patcher.dmg" | awk '{print $1}') ]]
-then
-	echo "ERROR: Wrong shasum: '${DESTINATION}/macOS-High-Sierra-Patcher.dmg'" 1>&2
-	HASERROR=true
-fi
+CHECKSUM=$(shasum -c ./HighSierraDownload)
 
-if [[ -z ${HASERROR} ]]
+echo "${CHECKSUM}"
+
+echo ""
+
+CHECKSUM=$(echo "${CHECKSUM}" | grep ": FAILED$")
+
+if [[ -z ${CHECKSUM} ]]
 then
-	echo "-OK-"
+	echo "- CHECKSUM OK -"
 
 	open "${DESTINATION}/macOS-High-Sierra-Patcher.dmg"
 fi
