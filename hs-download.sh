@@ -24,8 +24,8 @@ fi
 if [[ -z ${HASERROR} ]]
 then
 	echo "-OK-"
+
+	open "${DESTINATION}/macOS-High-Sierra-Patcher.dmg"
 fi
 
 echo ""
-
-open "${DESTINATION}/macOS-High-Sierra-Patcher.dmg"
