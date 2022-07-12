@@ -1,5 +1,5 @@
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/drhino/1013/main/hs-download.sh)"
+/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/drhino/1013/main/hs-patch.sh)"
 ```
 
 <hr />
