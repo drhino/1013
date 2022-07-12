@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+#
+# Key-value storage of:
+#
+#   "domain.service" => "/path/to/file.plist"
+#
+#
+# Search a file:
+#
+#   grep -R "domain.service" /System/Library/LaunchDaemons
+#
+#
+com.openssh.sshd           /System/Library/LaunchDaemons/ssh.plist
+com.apple.tftp             /System/Library/LaunchDaemons/tftp.plist
+com.apple.AppleFileServer  /System/Library/LaunchDaemons/com.apple.AppleFileServer.plist
+com.apple.smbd             /System/Library/LaunchDaemons/com.apple.smbd.plist
+com.apple.NetworkSharing   /System/Library/LaunchDaemons/com.apple.NetworkSharing.plist
+org.apache.httpd           /System/Library/LaunchDaemons/org.apache.httpd.plist
+com.apple.screensharing    /System/Library/LaunchDaemons/com.apple.screensharing.plist
+com.apple.uucp             /System/Library/LaunchDaemons/com.apple.uucp.plist
+com.apple.nfsd             /System/Library/LaunchDaemons/com.apple.nfsd.plist
+com.apple.lockd            /System/Library/LaunchDaemons/com.apple.lockd.plist
+com.apple.statd.notify     /System/Library/LaunchDaemons/com.apple.statd.notify.plist
+com.apple.AEServer         /System/Library/LaunchDaemons/com.apple.eppc.plist
+com.apple.fingerd 
+com.apple.ftpd 
+com.apple.telnetd 
+com.apple.rshd 
