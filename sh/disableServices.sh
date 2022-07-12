@@ -2,6 +2,23 @@
 
 CURRENT_DIR="$(cd "$(dirname "${0}")" && pwd)"
 
+# Disables the services if necessary.
+# When a service is successfully disabled, a message is shown.
+# When disabling a service failed, an error is thrown.
+# When a service is already disabled, nothing is returned.
+# -> Shows what has succeeded, failed, or nothing at all.
+# sh/disableServices.sh
+
+# Prints the live status report:
+# sh/disableServices.sh --scan
+
+# Prints the errors only:
+# sh/disableServices.sh --scan >/dev/null
+
+# Saves the errors into a file:
+# sh/disableServices.sh --scan >/dev/null 2>scan-results-failure.txt
+
+
 # V-214869: com.apple.tftp
 # V-214824: com.apple.AppleFileServer
 # V-214823: com.apple.smbd
@@ -39,8 +56,37 @@ disableServices=(
 	"com.openssh.sshd"
 )
 
+if [[ ! -z "${1}" ]]
+then
+	echo "--- SCAN SERVICES START ---"
+fi
+
 for service in "${disableServices[@]}"
-do
-   : 
-   "${CURRENT_DIR}/disableService.sh" "${service}"
+do :
+	if [[ -z "${1}" ]]
+	then
+		"${CURRENT_DIR}/disableService.sh" "${service}"
+	else
+		echo -n '.'
+
+		stderr=$("${CURRENT_DIR}/disableService.sh" "${service}" --check 2>&1 >/dev/null)
+
+		if [[ ! -z "${stderr}" ]]
+		then
+			echo ""
+			echo "${stderr}" 1>&2
+
+			HASERROR="true"
+		fi
+	fi
 done
+
+if [[ ! -z "${1}" ]]
+then
+	if [[ -z "${HASERROR}" ]]
+	then
+		echo ""
+	fi
+
+	echo "--- SCAN SERVICES END ---"
+fi
