@@ -28,11 +28,13 @@
 #
 function disableService() {
 
+	CURRENT_DIR="$(cd "$(dirname "${0}")" && pwd)"
+
 	# Unloads the service immediately.
 	if [[ ! -z $(launchctl list | grep "${1}$") ]]
 	then
 		# Finds the absolute path to the .plist.
-		plist=$(cat "${PWD}/${0}.map" | grep "${1}" | awk '{print $2}')
+		plist=$(cat "${CURRENT_DIR}/disableService.sh.map" | grep "${1}" | awk '{print $2}')
 
 		if [[ ! -z "${plist}" ]]
 		then
