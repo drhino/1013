@@ -1,6 +1,7 @@
 #!/bin/bash
 
 CURRENT_DIR="$(cd "$(dirname "${0}")" && pwd)"
+SERVICE_MAP="$(cat "${CURRENT_DIR}/disableService.sh.map")"
 
 # Disables the services if necessary.
 # When a service is successfully disabled, a message is shown.
@@ -54,6 +55,13 @@ disableServices=(
 	"com.apple.rshd"
 	"org.apache.httpd"
 	"com.openssh.sshd"
+
+	"com.apple.apsd"
+	"com.apple.InstallerDiagnostics.installerdiagwatcher"
+	"com.apple.InstallerDiagnostics.installerdiagd"
+	"com.apple.akd"
+	"com.apple.icloud.findmydeviced"
+	"com.apple.rapportd"
 )
 
 disabledServices=()
@@ -67,9 +75,9 @@ for service in "${disableServices[@]}"
 do :
 	if [[ -z "${1}" ]]
 	then
-		"${CURRENT_DIR}/disableService.sh" "${service}"
+		SERVICE_MAP="${SERVICE_MAP}" "${CURRENT_DIR}/disableService.sh" "${service}"
 	else
-		stderr=$("${CURRENT_DIR}/disableService.sh" "${service}" --check 2>&1 >/dev/null)
+		stderr=$(SERVICE_MAP="${SERVICE_MAP}" "${CURRENT_DIR}/disableService.sh" "${service}" --check 2>&1 >/dev/null)
 
 		echo -n '.'
 
