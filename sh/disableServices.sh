@@ -30,7 +30,7 @@ CURRENT_DIR="$(cd "$(dirname "${0}")" && pwd)"
 # V-214827: com.apple.statd.notify
 # V-214899: com.apple.AEServer
 # V-214903: com.apple.fingerd
-# V-214883: com.apple.ftpd
+# V-214883: com.apple.ftpd -> disabled by default on 10.13.6
 # V-214882: com.apple.telnetd
 # V-214810: com.apple.rshd
 # V-214919: org.apache.httpd
@@ -56,6 +56,8 @@ disableServices=(
 	"com.openssh.sshd"
 )
 
+disabledServices=()
+
 if [[ ! -z "${1}" ]]
 then
 	echo "--- SCAN SERVICES START ---"
@@ -67,26 +69,29 @@ do :
 	then
 		"${CURRENT_DIR}/disableService.sh" "${service}"
 	else
-		echo -n '.'
-
 		stderr=$("${CURRENT_DIR}/disableService.sh" "${service}" --check 2>&1 >/dev/null)
 
-		if [[ ! -z "${stderr}" ]]
+		echo -n '.'
+
+		if [[ -z "${stderr}" ]]
 		then
+			disabledServices+=("${service}")
+		else
 			echo ""
 			echo "${stderr}" 1>&2
-
-			HASERROR="true"
 		fi
 	fi
 done
 
 if [[ ! -z "${1}" ]]
 then
-	if [[ -z "${HASERROR}" ]]
-	then
-		echo ""
-	fi
+	echo ""
+	echo "---"
+
+	for service in "${disabledServices[@]}"
+	do :
+		echo "disableService(): ${service}: OK"
+	done
 
 	echo "--- SCAN SERVICES END ---"
 fi
