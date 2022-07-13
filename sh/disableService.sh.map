@@ -27,3 +27,10 @@ com.apple.fingerd
 com.apple.ftpd 
 com.apple.telnetd 
 com.apple.rshd 
+
+com.apple.apsd                                      /System/Library/LaunchDaemons/com.apple.apsd.plist
+com.apple.InstallerDiagnostics.installerdiagwatcher /System/Library/LaunchDaemons/com.apple.InstallerDiagnostics.installerdiagwatcher.plist
+com.apple.InstallerDiagnostics.installerdiagd       /System/Library/LaunchDaemons/com.apple.InstallerDiagnostics.installerdiagd.plist
+com.apple.akd                                       /System/Library/LaunchDaemons/com.apple.akd.plist
+com.apple.icloud.findmydeviced                      /System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+com.apple.rapportd                                  /System/Library/LaunchDaemons/com.apple.rapportd.plist
