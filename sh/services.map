@@ -15,28 +15,28 @@ com.apple.ftpd                                           /System/Library/LaunchD
 com.apple.telnetd                                        /System/Library/LaunchDaemons/
 com.apple.rshd                                           /System/Library/LaunchDaemons/
 
-com.apple.apsd                                           /System/Library/LaunchDaemons/com.apple.apsd.plist
-com.apple.InstallerDiagnostics.installerdiagwatcher      /System/Library/LaunchDaemons/com.apple.InstallerDiagnostics.installerdiagwatcher.plist
-com.apple.InstallerDiagnostics.installerdiagd            /System/Library/LaunchDaemons/com.apple.InstallerDiagnostics.installerdiagd.plist
-com.apple.icloud.findmydeviced                           /System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
-com.apple.akd                                            /System/Library/LaunchDaemons/com.apple.akd.plist
-com.apple.rapportd                                       /System/Library/LaunchDaemons/com.apple.rapportd.plist
+# com.apple.apsd                                           /System/Library/LaunchDaemons/com.apple.apsd.plist
+# com.apple.InstallerDiagnostics.installerdiagwatcher      /System/Library/LaunchDaemons/com.apple.InstallerDiagnostics.installerdiagwatcher.plist
+# com.apple.InstallerDiagnostics.installerdiagd            /System/Library/LaunchDaemons/com.apple.InstallerDiagnostics.installerdiagd.plist
+# com.apple.icloud.findmydeviced                           /System/Library/LaunchDaemons/com.apple.icloud.findmydeviced.plist
+# com.apple.akd                                            /System/Library/LaunchDaemons/com.apple.akd.plist
+# com.apple.rapportd                                       /System/Library/LaunchDaemons/com.apple.rapportd.plist
 
-com.apple.akd                                            /System/Library/LaunchAgents/com.apple.akd.plist
-com.apple.rapportd                                       /System/Library/LaunchAgents/com.apple.rapportd-user.plist
-com.apple.parsecd                                        /System/Library/LaunchAgents/com.apple.parsecd.plist
-com.apple.cloudphotosd                                   /System/Library/LaunchAgents/com.apple.cloudphotosd.plist
-com.apple.cloudd                                         /System/Library/LaunchAgents/com.apple.cloudd.plist
-com.apple.suggestd                                       /System/Library/LaunchAgents/com.apple.suggestd.plist
-com.apple.Maps.mapspushd                                 /System/Library/LaunchAgents/com.apple.Maps.pushdaemon.plist
-com.apple.icloud.fmfd                                    /System/Library/LaunchAgents/com.apple.icloud.fmfd.plist
-com.apple.cloudpaird                                     /System/Library/LaunchAgents/com.apple.cloudpaird.plist
-com.apple.identityservicesd                              /System/Library/LaunchAgents/com.apple.identityservicesd.plist
-com.apple.imagent                                        /System/Library/LaunchAgents/com.apple.imagent.plist
-com.apple.keyboardservicesd                              /System/Library/LaunchAgents/com.apple.keyboardservicesd.plist
-com.apple.passd                                          /System/Library/LaunchAgents/com.apple.passd.plist
-com.apple.protectedcloudstorage.protectedcloudkeysyncing /System/Library/LaunchAgents/com.apple.protectedcloudstorage.protectedcloudkeysyncing.plist
-com.apple.assistantd                                     /System/Library/LaunchAgents/com.apple.assistantd.plist
-com.apple.soagent                                        /System/Library/LaunchAgents/com.apple.soagent.plist
-com.apple.telephonyutilities.callservicesd               /System/Library/LaunchAgents/com.apple.telephonyutilities.callservicesd.plist
-com.apple.AddressBook.SourceSync                         /System/Library/LaunchAgents/com.apple.AddressBook.SourceSync.plist
+# com.apple.akd                                            /System/Library/LaunchAgents/com.apple.akd.plist
+# com.apple.rapportd                                       /System/Library/LaunchAgents/com.apple.rapportd-user.plist
+# com.apple.parsecd                                        /System/Library/LaunchAgents/com.apple.parsecd.plist
+# com.apple.cloudphotosd                                   /System/Library/LaunchAgents/com.apple.cloudphotosd.plist
+# com.apple.cloudd                                         /System/Library/LaunchAgents/com.apple.cloudd.plist
+# com.apple.suggestd                                       /System/Library/LaunchAgents/com.apple.suggestd.plist
+# com.apple.Maps.mapspushd                                 /System/Library/LaunchAgents/com.apple.Maps.pushdaemon.plist
+# com.apple.icloud.fmfd                                    /System/Library/LaunchAgents/com.apple.icloud.fmfd.plist
+# com.apple.cloudpaird                                     /System/Library/LaunchAgents/com.apple.cloudpaird.plist
+# com.apple.identityservicesd                              /System/Library/LaunchAgents/com.apple.identityservicesd.plist
+# com.apple.imagent                                        /System/Library/LaunchAgents/com.apple.imagent.plist
+# com.apple.keyboardservicesd                              /System/Library/LaunchAgents/com.apple.keyboardservicesd.plist
+# com.apple.passd                                          /System/Library/LaunchAgents/com.apple.passd.plist
+# com.apple.protectedcloudstorage.protectedcloudkeysyncing /System/Library/LaunchAgents/com.apple.protectedcloudstorage.protectedcloudkeysyncing.plist
+# com.apple.assistantd                                     /System/Library/LaunchAgents/com.apple.assistantd.plist
+# com.apple.soagent                                        /System/Library/LaunchAgents/com.apple.soagent.plist
+# com.apple.telephonyutilities.callservicesd               /System/Library/LaunchAgents/com.apple.telephonyutilities.callservicesd.plist
+# com.apple.AddressBook.SourceSync                         /System/Library/LaunchAgents/com.apple.AddressBook.SourceSync.plist
