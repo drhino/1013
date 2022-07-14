@@ -1,0 +1,21 @@
+#!/bin/bash
+
+while read service
+do
+    if [[ ! -z "${service}" ]]
+    then
+        service=$(echo "${service}" | awk '{print $1}')
+        daemon=$(sudo launchctl list | grep "${service}$")
+        agent=$(launchctl list | grep "${service}$")
+
+        if [[ ! -z "${daemon}" ]]
+        then
+            echo "service: ${service}: DAEMON RUNNING"
+        fi
+
+        if [[ ! -z "${agent}" ]]
+        then
+            echo "service: ${service}: AGENT RUNNING"
+        fi
+    fi
+done < "$(cd "$(dirname "${0}")" && pwd)/services.map"
