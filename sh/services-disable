@@ -7,15 +7,18 @@ do
           plist=$(echo "${service}" | awk '{print $2}')
         service=$(echo "${service}" | awk '{print $1}')
 
-        # Detects whether the service is an Agent or a Daemon.
-        if [[ ! -z $(echo ${plist} | grep "/LaunchAgents/") ]]
+        if [[ $(echo "${service}" | cut -c 1) != "#" ]]
         then
-            # Agent — Uses the old unloading method which is more convenient.
-            # "Could not find specified service" means the service is not running.
-            launchctl unload -w "${plist}" 2>/dev/null
-        else
-            # Daemon — Does not conflict when the service is already disabled.
-            sudo launchctl disable "system/${service}"
+            # Detects whether the service is an Agent or a Daemon.
+            if [[ ! -z $(echo ${plist} | grep "/LaunchAgents/") ]]
+            then
+                # Agent — Uses the old unloading method which is more convenient.
+                # "Could not find specified service" means the service is not running.
+                launchctl unload -w "${plist}" 2>/dev/null
+            else
+                # Daemon — Does not conflict when the service is already disabled.
+                sudo launchctl disable "system/${service}"
+            fi
         fi
     fi
 done < "$(cd "$(dirname "${0}")" && pwd)/services.map"
