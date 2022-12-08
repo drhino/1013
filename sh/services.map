@@ -25,12 +25,12 @@ com.apple.rshd                                           /System/Library/LaunchD
 # com.apple.akd                                            /System/Library/LaunchAgents/com.apple.akd.plist
 # com.apple.rapportd                                       /System/Library/LaunchAgents/com.apple.rapportd-user.plist
 # com.apple.parsecd                                        /System/Library/LaunchAgents/com.apple.parsecd.plist
-# com.apple.cloudphotosd                                   /System/Library/LaunchAgents/com.apple.cloudphotosd.plist
+com.apple.cloudphotosd                                   /System/Library/LaunchAgents/com.apple.cloudphotosd.plist
 # com.apple.cloudd                                         /System/Library/LaunchAgents/com.apple.cloudd.plist
-# com.apple.suggestd                                       /System/Library/LaunchAgents/com.apple.suggestd.plist
+com.apple.suggestd                                       /System/Library/LaunchAgents/com.apple.suggestd.plist
 # com.apple.Maps.mapspushd                                 /System/Library/LaunchAgents/com.apple.Maps.pushdaemon.plist
 # com.apple.icloud.fmfd                                    /System/Library/LaunchAgents/com.apple.icloud.fmfd.plist
-# com.apple.cloudpaird                                     /System/Library/LaunchAgents/com.apple.cloudpaird.plist
+com.apple.cloudpaird                                     /System/Library/LaunchAgents/com.apple.cloudpaird.plist
 # com.apple.identityservicesd                              /System/Library/LaunchAgents/com.apple.identityservicesd.plist
 # com.apple.imagent                                        /System/Library/LaunchAgents/com.apple.imagent.plist
 # com.apple.keyboardservicesd                              /System/Library/LaunchAgents/com.apple.keyboardservicesd.plist
